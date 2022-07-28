@@ -8,6 +8,12 @@ const UserInfo = () => {
     
     const [dataSaved, setDataSaved] = useLocalStorage("saved", "false");
 
+    const forgetUser = (e) => {
+        setUserName("");
+        setUserDiscord("");
+        setDataSaved("false");
+    }
+
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
@@ -67,8 +73,13 @@ const UserInfo = () => {
 
     else if (dataSaved == "true") {
         return (
-            <div>Welcome back {userName}!</div>
-        )
+          <div>
+            Welcome back {userName}!
+            <button type="button" onClick={forgetUser}>
+              Forget about me.
+            </button>
+          </div>
+        );
     }
 };
 
