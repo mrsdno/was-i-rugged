@@ -26,7 +26,7 @@ class NewProjectDashboard extends Component {
           <h1>Tell us about the project</h1>
         </Modal>
 
-        <button type="button" onClick={this.showModal}>
+        <button type="button" class="new-project-btn" onClick={this.showModal}>
           Add New Project
         </button>
       </div>

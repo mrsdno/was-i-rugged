@@ -5,7 +5,6 @@ import ProjectList from './components/ProjectList';
 import NewProject from './components/NewProject'
 
 import './app.css';
-import './index.css'
 import './reset.css'
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
   }, []);
 
   return (
-    <main>
+    <main className="main-wrapper">
       <Title></Title>
       <NewProject></NewProject>
     </main>
