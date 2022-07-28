@@ -5,6 +5,14 @@ const resolvers = {
         projects: async () => {
             return await Project.find({})
         },
+    },
+
+    Mutation: {
+        addProject: async (parent, args, context) => {
+            const project = await Project.create(args);
+
+            return { project };
+        }
     }
 }
 

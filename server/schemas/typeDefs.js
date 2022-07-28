@@ -10,9 +10,12 @@ const typeDefs = gql`
     status: String
   }
 
-
   type Query {
     projects: [Project]
+  }
+
+  type Mutation {
+    addProject(name: String!, picture: String, discord: String, twitter: String, status: String): Project
   }
 `;
 
