@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal } from "./Modal.js";
+import ModalForm from "./ModalForm.js"
 
 class NewProjectDashboard extends Component {
   constructor() {
@@ -24,6 +25,7 @@ class NewProjectDashboard extends Component {
       <div>
         <Modal show={this.state.show} handleClose={this.hideModal}>
           <h1>Tell us about the project</h1>
+          <ModalForm></ModalForm>
         </Modal>
 
         

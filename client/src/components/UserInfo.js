@@ -32,7 +32,7 @@ const UserInfo = () => {
     e.preventDefault();
 
     if (!userName || !userDiscord) {
-      setErrorMessage("Please provide this information!");
+      console.log("Please provide this information!");
     }
 
         setDataSaved("true");
@@ -40,7 +40,7 @@ const UserInfo = () => {
 
     };
     
-    if (dataSaved == "false") {
+    if (dataSaved === "false") {
 
         return (
             <div className="user-info-wrapper">
@@ -71,7 +71,7 @@ const UserInfo = () => {
         );
     }
 
-    else if (dataSaved == "true") {
+    else if (dataSaved === "true") {
         return (
           <div>
             Welcome back {userName}!
