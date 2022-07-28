@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocalStorage } from "../utils/useLocalStorage";
 
 const UserInfo = () => {
-  const [userName, setUserName] = useState("");
-  const [userDiscord, setUserDiscord] = useState("");
+    const [userName, setUserName] = useLocalStorage("name", "")
+    
+  const [userDiscord, setUserDiscord] = useLocalStorage("discord", "");
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -27,8 +29,6 @@ const UserInfo = () => {
 
     alert(`Ready to get data for ${userName}`);
 
-    setUserName("");
-    setUserDiscord("");
   };
 
   return (
@@ -36,7 +36,7 @@ const UserInfo = () => {
       <h1>Welcome!</h1>
       <p> We need some info from you before we can start.</p>
       <form>
-        <label for="fname">What is your name?</label>
+        <label htmlFor="fname">What is your name?</label>
         <input
           type="text"
           id="name"
@@ -44,7 +44,7 @@ const UserInfo = () => {
           onChange={handleInputChange}
           value={userName}
         />
-        <label for="lname">What is your discord id?</label>
+        <label htmlFor="lname">What is your discord id?</label>
         <input
           value={userDiscord}
           type="text"
