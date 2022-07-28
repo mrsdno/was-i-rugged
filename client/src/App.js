@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import Title from './components/Title';
-import { ProjectProvider } from './utils/ProjectContext';
-import ProjectList from './components/ProjectList';
-import NewProject from './components/NewProject'
+import NewProject from './components/NewProjectModal/NewProject';
+import UserInfo from './components/UserInfo'
 
 import './app.css';
 import './reset.css'
@@ -16,6 +15,7 @@ function App() {
   return (
     <main className="main-wrapper">
       <Title></Title>
+      <UserInfo></UserInfo>
       <NewProject></NewProject>
     </main>
   );
