@@ -9,9 +9,11 @@ const UserInfo = () => {
     const [dataSaved, setDataSaved] = useLocalStorage("saved", "false");
 
     const forgetUser = (e) => {
-        setUserName("");
-        setUserDiscord("");
-        setDataSaved("false");
+      setUserName("");
+      setUserDiscord("");
+      setDataSaved("false");
+      
+      window.location.reload(false);
     }
 
   const handleInputChange = (e) => {
@@ -35,8 +37,10 @@ const UserInfo = () => {
       console.log("Please provide this information!");
     }
 
-        setDataSaved("true");
-        console.log(dataSaved)
+      setDataSaved("true");
+      console.log(dataSaved)
+      window.location.reload(false);
+      
 
     };
     

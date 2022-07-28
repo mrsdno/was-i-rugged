@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SchemaLink } from "@apollo/client/link/schema";
 
 import {
@@ -24,19 +24,34 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
   const title = " NFT Project Rug Status";
   useEffect(() => {
     document.title = title;
   }, []);
 
+
+  const dataSaved = localStorage.getItem('saved');
+  const saved = JSON.parse(dataSaved);
+
+
+  const renderButton = () => {
+    if (saved === 'true') {
+      return <NewProject />;
+    } else
+      console.log('result is false', saved);
+  }
+
+
   return (
     <ApolloProvider client={client}>
       <main className="main-wrapper">
         <Title></Title>
         <UserInfo></UserInfo>
-        <NewProject></NewProject>
+        {renderButton()}
       </main>
+
     </ApolloProvider>
   );
 }
