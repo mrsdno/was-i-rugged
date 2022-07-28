@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 // Initialize new context for students
 const ProjectContext = createContext();
@@ -8,25 +8,13 @@ export const useProjectContext = () => useContext(ProjectContext);
 
 // The provider is responsible for creating our state, updating the state, and persisting values to the children
 export const ProjectProvider = ({ children }) => {
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      name: "WomenRise",
-      twitter: "@womenrisenft",
-      discord: "883829465732489249",
-    },
-    {
-      id: 2,
-      name: "HUG",
-      twitter: "@theHUG",
-      discord: "953021386039902250",
-    },
-  ]);
-
-  
+  const [project, setProject] = useState();
+  const [projects, setProjects] = useState(
+    JSON.parse(localStorage.getItem("projects") || "[]")
+  );
 
   // Function to add a student
-  const addProject = (project) => {
+const addProject = (project) => {
     // Check if the user forgot to enter a name
     if (!project.name) {
       return;
@@ -38,8 +26,9 @@ export const ProjectProvider = ({ children }) => {
 
     // Update state with the students array with the newStudent
     setProjects([...projects, newProject]);
-
+    console.log(projects);
   };
+
 
   // Function to remove a student
   const removeProject = (id) => {
@@ -51,16 +40,14 @@ export const ProjectProvider = ({ children }) => {
     setProjects(newProjectsList);
   };
 
+
+
   // List of options for the project status
-  const status = [
-    'Active',
-    'Semi-Active',
-    'Maybe Rugged'
-  ];
+  const status = ["Active", "Semi-Active", "Maybe Rugged"];
 
   return (
     <ProjectContext.Provider
-      value={{ projects, addProject, removeProject, status }}
+      value={{ projects, addProject, removeProject, saveProjectList }}
     >
       {/* We render children in our component so that any descendent can access the value from the provider */}
       {children}

@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from "react";
 // Import our custom useStudentContext hook to have access to the initial state
-import { useProjectContext } from '../utils/ProjectContext';
+import { useProjectContext } from "../utils/ProjectContext";
 
 export default function StudentList() {
   // TODO: Import the students, actions and majors from our custom useStudentContext hook
   // Assign students variable from our custom hook
-  const { projects, addProject, removeProject, status } = useProjectContext();
+  const { projects, addProject, removeProject, saveProjectList } = useProjectContext();
 
   // Initialize state for new students and new student majors
   const [newProjectName, setNewProjectName] = useState("");
   const [newProjectTwitter, setNewProjectTwitter] = useState("");
   const [newProjectDiscord, setNewProjectDiscord] = useState("");
-  
 
   return (
     <div>
@@ -81,10 +80,12 @@ export default function StudentList() {
                   addProject({
                     name: newProjectName,
                     twitter: newProjectTwitter,
-                    discord: newProjectDiscord
+                    discord: newProjectDiscord,
                   });
-                  setNewProjectStatus("");
                   setNewProjectName("");
+                  setNewProjectTwitter("");
+                  setNewProjectDiscord("");
+                  saveProjectList();
                 }}
               >
                 Add Project
