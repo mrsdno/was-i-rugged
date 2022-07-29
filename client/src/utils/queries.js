@@ -1,8 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_PROJECTS = gql`
-  {
-    projects {
+   query projects {
       projects {
         name
         picture
@@ -11,5 +10,4 @@ export const QUERY_PROJECTS = gql`
         status
       }
     }
-  }
 `;

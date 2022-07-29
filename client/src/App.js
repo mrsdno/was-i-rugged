@@ -10,6 +10,7 @@ import {
 import Title from "./components/Title";
 import NewProject from "./components/NewProjectModal/NewProject";
 import UserInfo from "./components/UserInfo";
+import Home from "./pages/Home";
 
 import "./app.css";
 import "./reset.css";
@@ -50,6 +51,7 @@ function App() {
         <Title></Title>
         <UserInfo></UserInfo>
         {renderButton()}
+        <Home></Home>
       </main>
 
     </ApolloProvider>

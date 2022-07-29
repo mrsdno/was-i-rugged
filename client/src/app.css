@@ -58,3 +58,26 @@
 	border-radius: 30px;
 }
 
+/* project list */
+
+.project-wrapper {
+  	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 600px;
+	width: 600px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
