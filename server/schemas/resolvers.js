@@ -1,5 +1,6 @@
 const { Project } = require('../models')
 
+
 const resolvers = {
     Query: {
         projects: async () => {
@@ -12,6 +13,11 @@ const resolvers = {
             const project = await Project.create(args);
 
             return { project };
+        },
+        deleteProject: async (parent, { _id } ) => {
+            const project = await Project.deleteOne({ _id });
+
+            return ( project )
         }
     }
 }

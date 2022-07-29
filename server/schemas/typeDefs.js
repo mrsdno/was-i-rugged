@@ -16,6 +16,7 @@ const typeDefs = gql`
 
   type Mutation {
     addProject(name: String!, picture: String, discord: String, twitter: String, status: String): Project
+    deleteProject(id: ID!): Project
   }
 `;
 
