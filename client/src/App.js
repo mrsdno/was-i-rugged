@@ -37,9 +37,13 @@ function App() {
   const saved = JSON.parse(dataSaved);
 
 
-  const renderButton = () => {
+  const renderHome = () => {
     if (saved === 'true') {
-      return <NewProject />;
+      return (
+      <div><NewProject />
+          <Home />
+        </div>
+      )
     } else
       console.log('result is false', saved);
   }
@@ -50,8 +54,7 @@ function App() {
       <main className="main-wrapper">
         <Title></Title>
         <UserInfo></UserInfo>
-        {renderButton()}
-        <Home></Home>
+        {renderHome()}
       </main>
 
     </ApolloProvider>
